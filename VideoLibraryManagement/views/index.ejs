@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <style>
+		
+	</style>
+  </head>
+  <body class="img-circle" background="images/background.jpg">
+  <nav class="navbar navbar-inverse" role="navigation">
+ <h1 align="center"> <span class="label label-info">Video Library Management System</span></h1>
+ 
+</nav>
+  <div class="container">
+    <div class="col-sm-3 col-sm-offset-3">
+<% if (typeof err != 'undefined') { %>
+<h4><center><span class="label label-danger"><%=err%></span></center></h4>
+<% } %>
+<% if (typeof signoutmsg != 'undefined') { %>
+<h4><center><span class="label label-success"><%=signoutmsg%></span></center></h4>
+<% } %>
+    <h3>Login</h3>
+    
+    <!-- LOGIN FORM -->
+	<hr>
+	<form action="/signin" method="post">
+		<div class="form-group">
+			<label>Email</label>
+			<input type="email" class="form-control" name="email" required="true" placeholder="email">
+		</div>
+		<div class="form-group">
+			<label>Password</label>
+			<input type="password" class="form-control" name="password" required="true" placeholder="password">
+		</div>
+
+		<button type="submit" class="btn btn-info btn-sm">Login</button>
+		<div>
+		Need an account? <a href="/signup">Signup</a>
+		</div>
+	</form>
+	<hr>
+	
+	</div>
+	</div>
+  </body>
+</html>

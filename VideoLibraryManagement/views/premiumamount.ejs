@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"/>
+    
+    <style>
+		
+	</style>
+  </head>
+  <body background="images/background.jpg">
+  <div class="page-header">
+  <h1></h1>
+</div>
+  <div id="photo">
+  <h3>
+					Welcome, <%=custDetails[0].firstname%>		
+ </h3>
+  <nav class="navbar navbar-default" role="navigation">
+				
+			<ul class="nav nav-pills">
+				<li class="active"><a href="/home">Home</a></li>
+				<li><a href="/personalprofile">Profile</a></li>
+				<li><a href="/MovieSearch1">Movie Search</a></li>	
+				<li><a href="/AllMovieController">List All Movies</a></li>
+				<li><a href="/rentsearch">Rent a Movie</a></li>
+				<li><a href="/returnmovie">Return a Movie</a></li>
+			</ul>
+</nav>
+
+<form action="/paypremium">
+<h3><center><span class="label label-success">Total Rent Amount is: $<%=amount%></span></center></h3>
+<center><button type="submit" class="btn btn-info btn-sm">Confirm</button></center>
+</form>
+
+  </div>
+  </body>
+</html>

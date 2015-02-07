@@ -1,0 +1,226 @@
+
+<!doctype html>
+<html>
+<head>
+	<title>User SignUp</title>
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"/>
+	<style>
+				
+	</style>
+
+	<script type="text/javascript">
+function checkPass()
+{		
+	console.log("in checkpass");
+    //Store the password field objects into variables ...
+    var pass1 = document.getElementById('password');
+    var pass2 = document.getElementById('confirmpassword');
+    //Store the Confimation Message Object ...
+    
+    //Set the colors we will be using ...
+    var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+    //Compare the values in the password field 
+    //and the confirmation field
+    if(pass1.value !== pass2.value)
+	{
+        //The passwords do not match.
+        //Set the color to the bad color and
+        //notify the user.
+        pass2.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        window.alert('Wrong Password');
+		return false;
+    }
+	
+	else 
+		return true;
+}  
+
+</script>
+
+
+</head>
+ <body background="images/background.jpg">
+<nav class="navbar navbar-inverse" role="navigation">
+ <h1 align="center"> <span class="label label-info">Video Library Management System</span></h1>
+ </nav>
+ <% if (typeof msg != 'undefined') { %>
+<h4><center><span class="label label-danger"><%=msg%></span></center></h4>
+<% } %>
+ 
+<h3 align="center"><span class="label label-info">Create An Account</span> </h3>
+<hr>
+<div class="container">
+
+	<!-- SIGNUP FORM -->
+	<form name ="form2" id ="form2" action="/register" method="post" onsubmit="return validate()">
+	<div class="col-sm-3 col-sm-offset-2">
+
+	
+		<div class="form-group">
+			<label>First Name</label>
+			<input type="text" class="form-control" name="firstname"  required="true">
+		</div>
+		<div class="form-group">
+			<label>Last Name</label>
+			<input type="text" class="form-control" name="lastname"  required="true">
+		</div>
+		<div class="form-group">
+			<label>Membership Id</label>
+			<input type="text" class="form-control" name="memid1" id="memid1" required="true" placeholder="MemberShipId">
+		</div>
+		
+		<div class="form-group">
+			<label>Membership Type</label>
+			<select class="form-control" name="memtype">
+			<option value="simple">Simple</option>
+			<option value="Premium">Premium</option>
+			</select>
+		</div>
+		
+		<div class="form-group">
+			<label>Email</label>
+			<input type="email" class="form-control" name="email"  required="true" placeholder="Email">
+		</div>
+		
+		<div class="form-group">
+			<label>Password</label>
+			<input type="password" class="form-control" name="password" id ="password"  required="true" placeholder="Password">
+		</div>
+		
+		
+		<div class="form-group">
+			<label>Confirm Password</label>
+			<input type="password" class="form-control" name="confirmpassword" id ="confirmpassword"  required="true" placeholder="Confirm Password">
+		</div>
+</div>
+
+
+
+
+<div class="col-sm-3 col-sm-offset-2">
+
+		<div class="form-group">
+			<label>Address</label>
+			<input type="text" class="form-control" name="address"  required="true">
+		</div>
+		<div class="form-group">
+			<label>City</label>
+			<input type="text" class="form-control" name="city"  required="true">
+		</div>
+		<div class="form-group">
+			<label>State</label>
+			<input type="text" class="form-control" name="state"  required="true" maxlength="9">
+		</div>
+		
+	
+		<div class="form-group">
+			<label>ZipCode</label>
+			<input type="text" name ="zipcode"  id="zipcode"   class="form-control" required="true">
+		</div>
+		
+		<div class="form-group">
+			<label>Country</label>
+			<input type="text" class="form-control" name="country"  required="true">
+		</div>
+		<hr>
+	<button type="submit" class="btn btn-info btn-sm" >Signup</button>	
+	<button type="reset" class="btn btn-info btn-sm">Reset</button>	
+	<p>Already have an account? <a href="/">Login</a></p>	
+</div>
+
+	</form>
+
+</div>
+
+<script>
+function validate() {
+
+	 var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+	var white ="#FFFFFF";
+	
+    
+    var alt="";
+    var test=0;
+    var regex=/^\d{9}$/;
+    var regex2=/(^\d{5}$)|(^\d{5}-\d{4}$)/;
+
+
+   /* if(document.form2.password.value!=document.form2.confirmpassword.value){
+        submitFlag=false;
+        test=test+1;
+         form2.password.style.backgroundColor=badColor;
+    	 form2.confirmpassword.style.backgroundColor=badColor;
+        alt=alt+"  -  enter same password in both textboxes"+"/n";
+    	
+   
+
+    else if (form2.password.style.backgroundColor===badColor)
+    {
+    		form2.password.style.backgroundColor=goodColor;
+    		form2.confirmpassword.style.backgroundColor=goodColor;
+
+    }
+ }*/
+
+
+    if(form2.password.value.length<4 || document.form2.password.value!=document.form2.confirmpassword.value){
+
+    	 test=test+1;
+    	 form2.password.style.backgroundColor=badColor;
+    	 form2.confirmpassword.style.backgroundColor=badColor;
+        alt=alt+"  -  length of password should be greater than 4 or passwords do not match"+"/n";
+
+    }
+
+    else {
+
+    	form2.password.style.backgroundColor=white;
+    	form2.confirmpassword.style.backgroundColor=white;
+    }
+
+    	
+    if(!regex.test(form2.memid1.value)){
+
+    	test=test+1;
+    	alt=alt+" - incorrect Membership Id";
+    	form2.memid1.style.backgroundColor=badColor;
+
+    }
+    else {
+    	form2.memid1.style.backgroundColor=white;
+
+    }
+
+
+
+    if(!regex2.test(form2.zipcode.value)){
+
+    	test=test+1;
+    	alt=alt+" - incorrect zipcode";
+    	form2.zipcode.style.backgroundColor=badColor;
+
+    }
+    	else {
+    		form2.zipcode.style.backgroundColor=white;
+
+    	}
+
+
+    if(test!==0){
+    	alert("You have "+test+" errors -" +alt);
+    	return false;
+    }
+
+    return true;
+    
+}
+</script>​​​​
+
+
+
+
+</body>
+</html>

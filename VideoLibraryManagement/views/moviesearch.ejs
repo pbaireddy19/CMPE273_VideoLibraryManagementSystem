@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"/>
+    </head>
+  <body background="images/background.jpg">
+    <div class="page-header">
+  <h3>Welcome <%=name%> [<%=custDetails[0].type%>]</h3>
+</div>
+  <div id="photo">
+ <center><h4> <span class="label label-info">Your last login time was: <%=custDetails[0].logintime%></span></h4> </center>
+  <nav class="navbar navbar-default" role="navigation">
+				
+			<ul class="nav nav-pills">
+
+				<li><a href="/home">Home</a></li>
+				<li><a href="/personalprofile">Profile</a></li>
+				<li class="active"><a href="/MovieSearch1">Movie Search</a></li>	
+				<li><a href="/AllMovieController">List All Movies</a></li>
+				<li><a href="/rentsearch">Rent a Movie</a></li>
+				<li><a href="/returnmovie">Return a Movie</a></li>
+				<li><a href="/signout">Signout</a></li>
+				
+			</ul>
+</nav>
+<div class="col-sm-4 col-sm-offset-3">
+<form action="/searchmovies">
+
+
+<h3>Movie Search</h3>
+  <div class="form-group">
+  <div class="col-xs-8">
+  <label>Movie Name</label>
+  <input type="text" class="form-control input-sm" name="moviename" required="true">
+  </div>
+  </div>
+ 
+ <div class="form-group">
+ <div class="col-xs-8">
+  <label>Movie Banner</label>
+  <input type="text" class="form-control input-sm" name="moviebanner" >
+  </div>
+  </div>
+  
+  <div class="form-group">
+  <div class="col-xs-8">
+  <label>Category</label>
+  <input type="text" class="form-control input-sm" name="category" >
+  </div>
+  </div>
+  
+  <div class="form-group">
+  <div class="col-xs-8">
+  <label>Release Date</label>
+  <input type="text" class="form-control input-sm" name="releasedate" >
+  </div>
+  </div>
+  
+  
+ <div class="form-group">
+  <div class="col-xs-8">
+  <button type="submit" class="btn btn-info">Search</button>
+  
+</div>
+  </div>
+
+  </div>
+  </body>
+</html>

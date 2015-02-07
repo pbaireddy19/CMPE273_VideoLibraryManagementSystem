@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"/>
+    
+    <style>
+		
+	</style>
+  </head>
+  <body background="images/background.jpg">
+  <div class="page-header">
+  <h1></h1>
+</div>
+  <div id="photo">
+  <h3>
+							
+ </h3>
+  <nav class="navbar navbar-default" role="navigation">
+				
+			<ul class="nav nav-pills">
+				<li><a href="/adminhome">Home</a></li>
+				<li><a href="/listmem">All Members</a></li>
+				<li><a href="/listpremium">Premium Members</a></li>
+				<li><a href="/listsimple">Simple Members</a></li>	
+				<li><a href="/searchmember">Search Members</a></li>
+				<li><a href="/deletemember">Delete Members</a></li>
+				<li><a href="/addmovie">Add Movies</a></li>
+				<li><a href="/deletemovie">Delete Movies</a></li>
+				<li><a href="/updatemovie">Update Movies</a></li>
+				<li><a href="/searchmovie">Search Movie</a></li>
+				<li><a href="/audit">Audit</a></li>
+				<li><a href="/signout">Signout</a></li>
+			</ul>
+</nav>
+  </div>
+  <center><h3>Enter Movie Name</h3>
+  <hr>
+  <div class="col-sm-3 col-sm-offset-3">
+	<form action="/auditlist" method="post">
+		<div class="form-group">
+			
+			<input type="text" class="form-control" name="moviename" required="true" placeholder="MovieName">
+		</div>
+
+		<button type="submit" class="btn btn-info btn-sm">Search</button>
+		
+	</form>
+	</div>
+	</center>
+  </body>
+</html>

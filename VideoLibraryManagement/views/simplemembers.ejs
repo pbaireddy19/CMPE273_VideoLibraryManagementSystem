@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"/>
+    
+    <style>
+		
+	</style>
+  </head>
+  <body background="images/background.jpg">
+  <div class="page-header">
+  <h3>Welcome <%=name%> [<%=custDetails[0].type%>]</h3>
+</div>
+  <div id="photo">
+  <center><h4> <span class="label label-info">Your last login time was: <%=custDetails[0].logintime%></span></h4> </center>
+  <nav class="navbar navbar-default" role="navigation">
+				
+			<ul class="nav nav-pills">
+				<li><a href="/adminhome">Home</a></li>
+				<li><a href="/listmem">All Members</a></li>
+				<li><a href="/listpremium">Premium Members</a></li>
+				<li class="active"><a href="/listsimple">Simple Members</a></li>	
+				<li><a href="/searchmember">Search Members</a></li>
+				<li><a href="/deletemember">Delete Members</a></li>
+				<li><a href="/addmovie">Add Movies</a></li>
+				<li><a href="/deletemovie">Delete Movies</a></li>
+				<li><a href="/updatemovie">Update Movies</a></li>
+				<li><a href="/searchmovie">Search Movie</a></li>
+				<li><a href="/signout">Signout</a></li>
+			</ul>
+</nav>
+
+<table class="table table-hover">
+	
+	<tr>
+<th>Personid</th>
+<th>FirstName</th>
+<th>LastName</th>
+<th>Address</th>
+<th>City</th>
+<th>State</th>
+<th>Zipcode</th>
+<th>Membership Id</th>
+<th>Country</th>
+</tr>
+<% 
+for(var i=0;i<searchresults.length;i++){%>
+<tr>
+	<td><%= searchresults[i].personid %></td>
+	<td><%= searchresults[i].firstname %></td>
+	<td><%= searchresults[i].lastname %></td>
+	<td><%= searchresults[i].address %></td>
+	<td><%= searchresults[i].city %></td>
+	<td><%= searchresults[i].state %></td>
+	<td><%= searchresults[i].zipcode %></td>
+	<td><%= searchresults[i].memberid %></td>
+	<td><%= searchresults[i].country %></td>
+</tr>
+<%}%>
+</table>
+  </div>
+  </body>
+</html>
